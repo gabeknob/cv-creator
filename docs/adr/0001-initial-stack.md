@@ -17,6 +17,7 @@ Use the following initial stack:
 - Package manager/runtime tooling: Bun workspaces.
 - Frontend: Vite, React, TanStack Router.
 - Rich text editor: SlateJS.
+- Text measurement and fit estimation: Pretext.
 - Backend framework: NestJS.
 - API style: GraphQL for application data.
 - REST endpoints: file upload, file download/export, health checks, webhooks, and auth callbacks where needed.
@@ -42,6 +43,8 @@ BullMQ and Redis are enough for import jobs, deletion orchestration, retries, an
 
 Object storage is required because DynamoDB has a 400 KB item limit and because large Markdown narratives, Slate documents, uploaded files, and exported PDFs should not live directly inside table items.
 
+Pretext gives the frontend a fast way to estimate wrapped text height for CV blocks without repeatedly measuring hidden DOM nodes. This is important for the MVP because CV drafts should respect page constraints such as A4 size, margins, font size, and line height.
+
 ## Consequences
 
 Benefits:
@@ -51,12 +54,14 @@ Benefits:
 - Clean Architecture boundaries are visible.
 - Local development is realistic without production AWS resources.
 - The model supports future AI and retrieval features without requiring them in the MVP.
+- CV editing can warn about page overflow and estimate fit without expensive layout thrashing.
 
 Tradeoffs:
 
 - NestJS, GraphQL, Clean Architecture, DynamoDB, Redis, and object storage add learning overhead.
 - Single-table DynamoDB design requires access patterns to be documented before implementation.
 - SlateJS document snapshots couple the CV document format to the editor.
+- Pretext estimation must stay synchronized with the active CV template, font settings, margins, and line height.
 - Splitting infrastructure into multiple packages increases workspace configuration.
 
 ## Follow-ups

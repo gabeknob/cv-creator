@@ -22,6 +22,7 @@ In scope:
 - Experience selection for CV drafts.
 - Structured SlateJS CV editor.
 - Controlled styling: template, font, font size, margins, line height, section order, show/hide sections.
+- Pretext-based CV fit estimation for page size, margins, font size, and line height.
 - Draft-local editing.
 - Finalized/exported CV immutability.
 - Object storage for document snapshots and exported files.
@@ -48,6 +49,7 @@ The MVP should prove:
 - Users can maintain an experience database.
 - Fine-grained experiences are useful when assembling CVs.
 - CV document edits can diverge safely from canonical experience data.
+- The editor can help users stay within a practical CV page budget.
 - The architecture can later support AI recommendations.
 
 ## Consequences
@@ -80,5 +82,6 @@ Create CV:
 2. Select experiences.
 3. Generate initial structured Slate document.
 4. Edit content and styling manually.
-5. Finalize/export.
+5. Show fit/overflow feedback for the selected page format.
+6. Finalize/export.
 ```

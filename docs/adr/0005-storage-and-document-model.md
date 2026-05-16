@@ -69,6 +69,25 @@ The backend validates the document lightly:
 - Serialized size is acceptable.
 - No unsafe embedded content.
 
+## Page Fit Estimation
+
+Use Pretext in the MVP to estimate wrapped text height for CV document blocks.
+
+The estimator should account for:
+
+- Page size such as A4 or Letter.
+- Margins.
+- Template spacing.
+- Section headings.
+- Bullet indentation and list markers.
+- Font family.
+- Font size.
+- Line height.
+
+Pretext is used as a fast preflight estimator, not as the final export renderer. It helps the editor warn about overflow, estimate remaining page space, and guide users toward a CV that fits the selected format without repeatedly forcing DOM layout measurement.
+
+The final renderer remains the authority before export/finalization. If the final PDF renderer reports a different page count or overflow state, the renderer result wins.
+
 ## Experience Narrative Format
 
 Use Markdown for canonical experience narratives.
@@ -112,9 +131,11 @@ Benefits:
 - Keeps large documents and exports out of the database.
 - Supports future S3 migration.
 - Keeps final CVs stable after source data changes.
+- Gives the MVP a practical mechanism for A4/Letter fit feedback while editing.
 
 Tradeoffs:
 
 - Requires object storage adapter from the beginning.
 - Reads may need both DynamoDB and object storage.
 - Document snapshot versioning must be handled deliberately.
+- Text measurement accuracy depends on keeping Pretext inputs aligned with loaded fonts and rendered CV styles.
