@@ -25,6 +25,7 @@ packages/
   application/
   dynamodb/
   canonical-tags/
+  cv-renderer/
   object-storage/
   queue/
   llm/
@@ -36,7 +37,7 @@ Future packages can include:
 ```txt
 packages/
   vector-qdrant/
-  pdf-renderer/
+  custom-cv-layout/
 ```
 
 Dependency direction:
@@ -75,6 +76,8 @@ The API and worker are delivery mechanisms for the same application. They should
 Layer-based packages make Clean Architecture easier to learn because dependency direction is visible. Internal folders can still be organized by domain area.
 
 Separate adapter packages make external dependencies visible. DynamoDB, object storage, queues, LLM providers, and future vector stores can be swapped or inspected independently.
+
+The shared CV renderer package owns semantic CV document rendering rules used by both the web preview and backend export path. Keeping it as a shared package protects preview/export parity without coupling the API app to the web app.
 
 ## Consequences
 

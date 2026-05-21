@@ -56,7 +56,7 @@ Examples:
 - Migrated Express services to Fastify.
 - Reduced deployment time by 50% with GitHub Actions.
 - Mentored two junior developers.
-- Designed a structured rich-text CV editor with SlateJS.
+- Designed a structured CV builder with rich-text fields.
 
 Important fields:
 
@@ -318,7 +318,7 @@ Important fields:
 - Status: `draft`, `finalized`, `exported`, `archived`
 - Target profile ID
 - CV strategy ID
-- Slate document object key
+- Semantic CV document object key
 - Page settings
 - Source experience IDs
 - Created at
@@ -338,7 +338,7 @@ Rules:
 3. User tags experiences manually.
 4. User creates a CV draft.
 5. User manually selects experiences.
-6. App creates a structured Slate document from selected experiences.
+6. App creates a structured semantic CV document from selected experiences.
 7. User edits content and controlled styling.
 8. User finalizes or exports the CV.
 

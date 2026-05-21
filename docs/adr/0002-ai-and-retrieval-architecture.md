@@ -32,7 +32,7 @@ Object storage stores large blobs:
 - Uploaded source files.
 - Extracted text.
 - Experience canonical narratives as Markdown.
-- Slate CV document snapshots.
+- Semantic CV document snapshots with Slate-compatible rich text fields.
 - Exported PDFs or other generated files.
 
 Vector search is planned but deferred until recommendation features begin. When introduced, it should store embeddings for:
@@ -90,7 +90,7 @@ Future AI-assisted CV generation:
 3. System expands desired tags through canonical tag relations.
 4. User reviews or edits a CV strategy.
 5. LLM uses the strategy to select and render experiences as a cohesive story.
-6. App creates a Slate CV draft document.
+6. App creates a semantic CV draft document.
 7. User manually edits the final document.
 
 CV generation can remain synchronous for the initial non-recommendation MVP. If generation later becomes slow or unreliable, it can move behind an async job without changing the use case boundary.

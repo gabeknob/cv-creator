@@ -10,13 +10,13 @@ The long-term goal is to support AI-assisted import, reconciliation, tagging, re
 - Register fine-grained experiences under those contexts.
 - Add canonical tags, private user tags, and metrics to experiences.
 - Select experiences for a CV draft.
-- Edit the generated structured CV document with SlateJS.
+- Edit structured CV blocks and SlateJS-powered rich text fields with a real-time PDF preview.
 - Finalize and export immutable CV snapshots.
 
 ## Tech Stack
 
 - Runtime and package management: Bun workspaces.
-- Frontend: Vite, React, TanStack Router, SlateJS.
+- Frontend: Vite, React, TanStack Router, SlateJS-powered rich text fields.
 - Backend: NestJS.
 - API: GraphQL for application data; REST for upload, export, health, and webhook-style operations.
 - Auth: Clerk, mapped to internal user IDs.
